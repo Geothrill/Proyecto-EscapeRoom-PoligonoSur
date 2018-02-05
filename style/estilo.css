@@ -1,3 +1,6 @@
-*{
-	
+/* Cambiar */
+body {
+	background-image: url("../images/bg_ScapeRoom.jpg");
+	background-size: cover;
+	width: 80%;
 }
