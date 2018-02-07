@@ -1,9 +1,50 @@
-/* Cambiar */
 body {
-	background-image: url("../images/bg_ScapeRoom.jpg");
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-        background-size: cover;
-        background-color: #464646;
+	overflow: hidden;
+	/* Para que no se pueda mover la barra */
 }
+	/* Ajuste del fondo del juego y las estadisticas del jugador (a la derecha) */
+.img {
+
+    padding-bottom: 62.5%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+	height: 100%;
+	background-color: white;
+}
+
+.img-gui {
+	background-color: black;
+	width: 100%;
+	height: 100%;
+    padding-bottom: 62.5%;
+    background-size: 300px;
+    background-repeat: repeat;
+    opacity: 0.6;
+}
+.img-gui:hover {
+    opacity: 1;
+}
+
+.item {
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    background-color: yellow;
+}
+#router {
+    left: 673px;
+    top: 263px;
+
+}
+
+/* Con esta clase los div del juego se juntarían y no habría esa separación ¿usar?
+.landing-col {
+    background-size: 100% auto;
+    background-size: 100% auto;
+    background-size: 100% auto;
+    background-size: 100% auto;
+    height: 300px;
+    margin:0;
+    padding:0px;
+}*/
