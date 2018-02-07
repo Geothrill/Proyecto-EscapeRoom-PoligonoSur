@@ -1,6 +1,9 @@
 /* Cambiar */
 body {
 	background-image: url("../images/bg_ScapeRoom.jpg");
-	background-size: cover;
-	width: 80%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+        background-size: cover;
+        background-color: #464646;
 }
