@@ -4,7 +4,6 @@ body {
 }
 	/* Ajuste del fondo del juego y las estadisticas del jugador (a la derecha) */
 .img {
-
     padding-bottom: 62.5%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -20,7 +19,7 @@ body {
     padding-bottom: 62.5%;
     background-size: 300px;
     background-repeat: repeat;
-    opacity: 0.6;
+    opacity: 1;
 }
 .img-gui:hover {
     opacity: 1;
@@ -28,44 +27,37 @@ body {
 
 .item {
     position: absolute;
-
     background-color: beige;
-
 }
 #router {
     left: 87%;
     top: 55%;
     width: 5%;
     height: 5%;
-
 }
 #libro {
     left: 15%;
     top: 40%;
     width: 10%;
     height: 10%;
-
 }
 #movil {
     left: 20%;
     top: 60%;
     width: 5%;
     height: 5%;
-
 }
 #cable {
     left: 72%;
     top: 68%;
     width: 10%;
     height: 5%;
-
 }
 #proveedor {
     left: 43%;
     top: 1%;
     width: 10%;
     height: 4%;
-
 }
 #lupa {
     position:absolute;
@@ -75,29 +67,74 @@ body {
     top: 82%;
     width: 7%;
     height: 7%;
-
 }
 #pc {
-
     left: 82%;
-
     top: 39%;
     width: 8%;
     height: 10%;
-
 }
 
 #navegador {
-
     left: 80.5%;
-
-    
-
     top: 40%;
     width: 1%;
     height: 1%;
-
 }
+
+/* Implementado por juan el 08/02 */
+
+#perfil {
+    margin-top: 10%;
+    width: 75%;
+    height: 15%;
+    left: 15%;
+    padding: 5%;
+    position: absolute;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#info {
+    margin-top: 10%;
+    top: 16%;
+    width: 75%;
+    height: 35%;
+    left: 15%;
+    padding: 5%;
+    position: absolute;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#vidas {
+    margin-top: 10%;
+    top: 52%;
+    width: 75%;
+    height: 12%;
+    left: 15%;
+    padding: 5%;
+    position: absolute;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#pista {
+    margin-top: 10%;
+    top: 65%;
+    width: 75%;
+    height: 23%;
+    left: 15%;
+    padding: 5%;
+    position: absolute;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+i {
+    font-size: 20px;
+}
+/* fin imple. */
 
 /* Con esta clase los div del juego se juntarían y no habría esa separación ¿usar?
 .landing-col {
@@ -109,7 +146,3 @@ body {
     margin:0;
     padding:0px;
 }*/
-
-
-
-
