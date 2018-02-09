@@ -10,11 +10,47 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="style/estilo.css">
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/js.js"></script>
+
 
 </head>
 <body class="container-fluid">
+	<div class='popup'>
+		<div class='cnt223 text-center'>
+			<h1>Nombre del Juego</h1>
+			<h2>Descripcion</h2>
+			<p>
+			We were affected by the fire next door and will remain closed until further notice.
+			<br/>
+			<br/>
+			<h2>Reglas del juego</h2>
+			<p>
+			<ul class="text-left">
+				<li>Dispones de 5 minutos para:</li>
+				<li>Encontrar los 7 objetos que nos ayudaran a acceder a informacion</li>
+				<li>Utilice la Lupa para facilitar su busqueda</li>
+				<li>Una vez encontrado, ahora toca responder bien a la pregunta</li>	
+			</ul>
+			
+			<br/>
+			<p>Introduzca su nombre</p>
+			<input type="text" class="usuario"><br><br>
+			<button type="button" class="btn btn-primary cerrar">START</button>
+			</p>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-10 col-xs-12">
+			<div id="popup" style="display: none;">
+    <div class="content-popup">
+        <div class="close"><a href="#" id="close"><img src="images/close.png"/></a></div>
+        <div>
+           <h2>Contenido POPUP</h2>
+           ...
+        </div>
+    </div>
+</div>
 			<div class="img" style="background-image: url('images/bg_ScapeRoom.jpg');">
 				<p>The mouse pointer position is at: <span></span></p>
 				<div class="item" id="pc"></div>
