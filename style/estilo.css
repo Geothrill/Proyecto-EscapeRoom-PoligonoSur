@@ -1,3 +1,13 @@
+@font-face {
+font-family:Gate;
+src: url(../font/Gate.ttf);
+}
+
+@font-face {
+font-family:run;
+src: url(../font/Run.ttf);
+}
+
 body {
 	overflow: hidden;
 	/* Para que no se pueda mover la barra */
@@ -136,20 +146,6 @@ i {
 }
 /* fin imple. */
 
-#overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: #000;
-filter:alpha(opacity=70);
--moz-opacity:0.7;
--khtml-opacity: 0.7;
-opacity: 0.7;
-z-index: 100;
-display: none;
-}
 .cnt223 a{
 text-decoration: none;
 }
@@ -162,25 +158,34 @@ z-index: 101;
 }
 .cnt223{
 min-width: 600px;
-width: 600px;
+width: 1000px;
 min-height: 150px;
 margin: 100px auto;
 background: #f3f3f3;
 position: relative;
 z-index: 103;
 padding: 15px 35px;
-border-radius: 5px;
+border-radius: 40px;
 box-shadow: 0 2px 5px #000;
 }
 .cnt223 p{
 clear: both;
-    color: #555555;
-    /* text-align: justify; */
-    font-size: 20px;
-    font-family: sans-serif;
+        /* text-align: justify; */
+    font-size: 1.6em;
+    font-family: Gate;
+    
+}
+.cnt223 h1{
+font-family: Gate;
+font-size: 4em;
+color: red
+}
+.cnt223 h2{
+font-family: Gate;
+font-size: 3em;
 }
 .cnt223 p a{
-color: #d91900;
+
 font-weight: bold;
 }
 .cnt223 .x{
@@ -193,6 +198,34 @@ width: 34px;
 }
 .cnt223 .x:hover{
 cursor: pointer;
+}
+
+.popup li{
+  font-family: Gate;  
+  font-size: 1.6em;
+}
+
+.popup img{
+    width: 30%;
+    height: 30%; 
+    float: right;
+    
+}
+
+.usuario{
+    font-family: Gate;  
+    font-size: 2em;
+    text-align: center;
+}
+
+
+.start{
+    font-family: run;
+    border-radius: 15px;
+    font-size: 2.5em;
+    width: 60%;
+    height: 20%;
+    letter-spacing: 10px;
 }
 
 /* Con esta clase los div del juego se juntarían y no habría esa separación ¿usar?
