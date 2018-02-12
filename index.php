@@ -16,6 +16,60 @@
 
 </head>
 <body class="container-fluid">
+
+<?php
+	// Conectando, seleccionando la base de datos
+	
+	$mysqli = new mysqli('localhost', 'root', 'alumnado', 'frases_celebres');
+	$mysqli->set_charset("utf8");
+	
+	/* En caso de que haya error... */
+	if ($mysqli->connect_errno) {
+	    echo "No se pudo conectar a la BD";
+	    echo "Error: Fallo al conectarse a MySQL debido a: \n";
+	    echo "Errno: " . $mysqli->connect_errno . "\n";
+	    echo "Error: " . $mysqli->connect_error . "\n";
+	    exit;
+	}
+	
+	// Comenzamos las consultas
+	
+	$sql = 'select nombre_completo from autores where id_autor = 3;';
+	
+	// Si la consulta falla....
+	if(!$resultado = $mysqli->query($sql)) {
+	    echo "La consulta falló";
+	    echo "Error: La ejecución de la consulta falló debido a: \n";
+	    echo "Query: " . $sql . "\n";
+	    echo "Errno: " . $mysqli->errno . "\n";
+	    echo "Error: " . $mysqli->error . "\n";
+	    exit;
+	}
+	
+	// No hay datos en esa consulta
+	if ($resultado->num_rows === 0) {
+	    echo "No hay datos contenidos.";
+	    exit;
+	}
+	
+	// objeto que contiene tablas, datos, etc...
+	$resultado = $mysqli->query($sql);
+
+	/* Obtención de base de datos
+	$resp = $resultado->fetch_assoc();
+	echo $resp['nombre_completo'];	*/
+	
+	/* Ejemplo de obtener muchos datos
+	while($f = $resultado->fetch_object()){
+	    echo $f->nombre_completo.' <br/>';
+	    echo $f->fecha_nac.' <br/>';
+	}
+	*/
+	$resultado->free();
+	$mysqli->close();
+?>
+
+
 	<div class='popup'>
 		<div class='cnt223 text-center'>
 			<h1>Nombre del Juego</h1>
