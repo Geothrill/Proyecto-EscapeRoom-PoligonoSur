@@ -243,13 +243,13 @@ cursor: pointer;
     letter-spacing: 10px;
 }
 
-/* Con esta clase los div del juego se juntarían y no habría esa separación ¿usar?
-.landing-col {
-    background-size: 100% auto;
-    background-size: 100% auto;
-    background-size: 100% auto;
-    background-size: 100% auto;
-    height: 300px;
-    margin:0;
-    padding:0px;
-}*/
+/* De pepe */
+
+.otroPopup{
+width: 100%;
+margin: 0 auto;
+display: none;
+position: fixed;
+z-index: 101;
+}
+/* De pepe */
