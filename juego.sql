@@ -65,6 +65,12 @@ CREATE TABLE cable (
     correcta int
 );
 
+CREATE TABLE ranking (
+    jugador varchar(255),
+    tiempo long
+);
+
+
 
 INSERT INTO pc (id, pregunta, res1, res2, res3, correcta)
 VALUES (1, "¿Qué requisitos son necesarios para usar internet?"
