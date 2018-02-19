@@ -133,7 +133,9 @@
 					<div class="item" id="cable"></div>
 					<div class="item" id="proveedor"></div>
 					<div class="item" id="navegador"></div>
-					<div class="" id="lupa"></div>
+					<div class="" id="lupa">
+						<img src="./images/lupa.png" alt="">
+					</div>
 				</div>
 			</div>
 
