@@ -188,7 +188,7 @@ clear: both;
         /* text-align: justify; */
     font-size: 1.6em;
     font-family: Gate;
-    
+
 }
 .cnt223 h1{
 font-family: Gate;
@@ -216,19 +216,19 @@ cursor: pointer;
 }
 
 .popup li{
-  font-family: Gate;  
+  font-family: Gate;
   font-size: 1.6em;
 }
 
 .popup img{
     width: 30%;
-    height: 30%; 
+    height: 30%;
     float: right;
-    
+
 }
 
 .usuario{
-    font-family: Gate;  
+    font-family: Gate;
     font-size: 2em;
     text-align: center;
 }
@@ -246,10 +246,15 @@ cursor: pointer;
 /* De pepe */
 
 .otroPopup{
-width: 100%;
-margin: 0 auto;
-display: none;
-position: fixed;
-z-index: 101;
+	width: 100%;
+	margin: 0;
+	display: none;
+	position: fixed;
+	z-index: 101;
+}
+.reloj{
+	font-weight: bold;
+	font-size: 45px;
+	color: red;
 }
 /* De pepe */
