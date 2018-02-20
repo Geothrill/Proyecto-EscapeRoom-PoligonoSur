@@ -16,27 +16,24 @@
 	<script type="text/javascript" src="js/js.js"></script>
 
 	<!-- Juan -->
-	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" 
+	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
          rel = "stylesheet">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<!-- Juan -->
 
-	<!-- librerias de pepe
 	<script type="text/javascript" src="js/reloj.js"></script>
 	<script type="text/javascript" src="js/countdowntimer.js"></script>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
-	Fin librerias -->
+
 </head>
 <body class="container-fluid">
 
 	<?php
 	// Conectando, seleccionando la base de datos
 	// $mysqli = new mysqli('HOST', 'USER', 'PASS', 'NOMBRE_BD');
-	$mysqli = new mysqli('localhost', 'root', '', 'juego');
+	$mysqli = new mysqli('localhost', 'root', 'pepedejuan', 'juego');
 	$mysqli->set_charset("utf8");
-	
+
 	/* En caso de que haya error... */
 	if ($mysqli->connect_errno) {
 		echo "No se pudo conectar a la BD";
@@ -45,11 +42,11 @@
 		echo "Error: " . $mysqli->connect_error . "\n";
 		exit;
 	}
-	
+
 	// Comenzamos las consultas
-	
+
 	$sql = 'select * from cable;';
-	
+
 	// Si la consulta falla....
 	if(!$resultado = $mysqli->query($sql)) {
 		echo "La consulta falló ";
@@ -59,20 +56,20 @@
 		echo "Error: " . $mysqli->error . "\n";
 		exit;
 	}
-	
+
 	// No hay datos en esa consulta
 	if ($resultado->num_rows === 0) {
 		echo "No hay datos contenidos.";
 		exit;
 	}
-	
+
 	// objeto que contiene tablas, datos, etc...
 	$resultado = $mysqli->query($sql);
 
 	/* Obtención de base de datos
 	$resp = $resultado->fetch_assoc();
 	echo $resp['nombre_completo'];	*/
-	
+
 	/* Ejemplo de obtener muchos datos
 	while($f = $resultado->fetch_object()){
 	    echo $f->nombre_completo.' <br/>';
@@ -100,13 +97,13 @@
 						<li>Dispones de 5 minutos para:</li>
 						<li>Encontrar los 7 objetos que nos ayudaran a acceder a informacion</li>
 						<li>Utilice la Lupa para facilitar su busqueda</li>
-						<li>Una vez encontrado, ahora toca responder bien a la pregunta</li>	
+						<li>Una vez encontrado, ahora toca responder bien a la pregunta</li>
 					</ol>
 
 					<br/>
 					<h2>Introduzca su nombre</h2>
 					<input type="text" class="usuario" id="usuario"><br><br>
-					<button type="button" class="btn btn-primary cerrar start">START</button>
+					<button type="button" class="btn btn-primary cerrar start" id="iniciarJuego">START</button>
 				</p>
 			</div>
 		</div>
@@ -122,10 +119,89 @@
 						</div>
 					</div>
 				</div>
+
+
+
+									<div class='popup-pc otroPopup' style="display: none;">
+										<div class='cnt223 text-center'>
+											<h4 class="text-center">PC</h4>
+											<p id="preguntas-pc"></p>
+											<input type="radio" name="radio-pc" id="respuesta1-pc"/><br>
+											<input type="radio" name="radio-pc" id="respuesta2-pc"/><br>
+											<input type="radio" name="radio-pc" id="respuesta3-pc"/><br>
+										</div>
+									</div>
+
+
+									<div class='popup-libro otroPopup' style="display: none;">
+										<div class='cnt223 text-center'>
+											<h4 class="text-center">Libro</h4>
+											<p id="preguntas-libro"></p>
+											<input type="radio" name="radio-libro" id="respuesta1-libro"/><br>
+											<input type="radio" name="radio-libro" id="respuesta2-libro"/><br>
+											<input type="radio" name="radio-libro" id="respuesta3-libro"/><br>
+										</div>
+									</div>
+
+
+									<div class='popup-movil otroPopup' style="display: none;">
+										<div class='cnt223 text-center'>
+											<h4 class="text-center">Movil</h4>
+											<p id="preguntas-movil"></p>
+											<input type="radio" name="radio-movil" id="respuesta1-movil"/><br>
+											<input type="radio" name="radio-movil" id="respuesta2-movil"/><br>
+											<input type="radio" name="radio-movil" id="respuesta3-movil"/><br>
+										</div>
+									</div>
+
+
+									<div class='popup-router otroPopup' style="display: none;">
+										<div class='cnt223 text-center'>
+											<h4 class="text-center">Router</h4>
+											<p id="preguntas-router"></p>
+											<input type="radio" name="radio-router" id="respuesta1-router"/><br>
+											<input type="radio" name="radio-router" id="respuesta2-router"/><br>
+											<input type="radio" name="radio-router" id="respuesta3-router"/><br>
+										</div>
+									</div>
+
+
+									<div class='popup-cable otroPopup' style="display: none;">
+										<div class='cnt223 text-center'>
+											<h4 class="text-center">Cable</h4>
+											<p id="preguntas-cable"></p>
+											<input type="radio" name="radio-cable" id="respuesta1-cable"/><br>
+											<input type="radio" name="radio-cable" id="respuesta2-cable"/><br>
+											<input type="radio" name="radio-cable" id="respuesta3-cable"/><br>
+										</div>
+									</div>
+
+
+									<div class='popup-proveedor otroPopup' style="display: none;">
+										<div class='cnt223 text-center'>
+											<h4 class="text-center">Proveedor</h4>
+											<p id="preguntas-proveedor"></p>
+											<input type="radio" name="radio-proveedor" id="respuesta1-proveedor"/><br>
+											<input type="radio" name="radio-proveedor" id="respuesta2-proveedor"/><br>
+											<input type="radio" name="radio-proveedor" id="respuesta3-proveedor"/><br>
+										</div>
+									</div>
+
+
+									<div class='popup-navegador otroPopup' style="display: none;">
+										<div class='cnt223 text-center' >
+											<h4 class="text-center">Navegador</h4>
+											<p id="preguntas-navegador"></p>
+											<input type="radio" name="radio-navegador" id="respuesta1-navegador"/><br>
+											<input type="radio" name="radio-navegador" id="respuesta2-navegador"/><br>
+											<input type="radio" name="radio-navegador" id="respuesta3-navegador"/><br>
+										</div>
+									</div>
+
 <!-- Fin Javi, Popup de inicio -->
 
 				<div class="img" style="background-image: url('images/bg_ScapeRoom.jpg');">
-					<p>The mouse pointer position is at: <span></span></p>
+					<p id="cuentaAtras" class="reloj"></p>
 					<div class="item" id="pc"></div>
 					<div class="item" id="libro"></div>
 					<div class="item" id="movil"></div>
