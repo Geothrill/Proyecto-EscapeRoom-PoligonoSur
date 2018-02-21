@@ -70,26 +70,32 @@ body {
     height: 4%;
 }
 #lupa {
+    border-radius: 30px;
     position:absolute;
-    background-image: url('../images/lupa.png');
-    background-size: cover;
-    left: 4%;
+    background-color: red;
+    left: 3%;
     top: 82%;
-    width: 7%;
+    width: 5%;
     height: 7%;
 }
+
+#lupa img{
+    width: 140px;
+    height: 100px;
+}
+
 #pc {
-    left: 82%;
-    top: 39%;
-    width: 8%;
-    height: 10%;
+    left: 81.5%;
+    top: 38%;
+    width: 9%;
+    height: 11%;
 }
 
 #navegador {
-    left: 80.5%;
+    left: 80%;
     top: 40%;
     width: 1%;
-    height: 1%;
+    height: 2%;
 }
 
 /* Implementado por juan el 08/02 */

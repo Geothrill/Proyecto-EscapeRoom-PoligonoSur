@@ -31,7 +31,7 @@
 	<?php
 	// Conectando, seleccionando la base de datos
 	// $mysqli = new mysqli('HOST', 'USER', 'PASS', 'NOMBRE_BD');
-	$mysqli = new mysqli('localhost', 'root', 'pepedejuan', 'juego');
+	$mysqli = new mysqli('localhost', 'root', 'alumnado', 'juego');
 	$mysqli->set_charset("utf8");
 
 	/* En caso de que haya error... */

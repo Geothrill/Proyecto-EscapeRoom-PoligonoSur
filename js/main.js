@@ -24,25 +24,25 @@ $(document).ready(function(){
         	//console.log(event.target.id);
         	var item = event.target.id;
         	if (item == "libro") {
-        		$("#lapista").text("Pista sobre libros");
+        		$("#lapista").text("Libro: en él se encuentran varias leyes sobre los Derechos de la Información.");
         	}
         	if (item == "pc") {
-        		$("#lapista").text("Pista sobre pc");
+        		$("#lapista").text("Pc: dispositivo que entre otras cosas nos permite navegar por internet.");
         	}
         	if (item == "movil") {
-        		$("#lapista").text("Pista sobre movil");
+        		$("#lapista").text("Movil: dispositivo de menor tamaño que el pc que nos permite navegar por internet.");
         	}
         	if (item == "router") {
-        		$("#lapista").text("Pista sobre router");
+        		$("#lapista").text("Router: Un router es un dispositivo hardware que permite la interconexión de ordenadores con internet");
         	}
         	if (item == "cable") {
-        		$("#lapista").text("Pista sobre cable");
+        		$("#lapista").text("Cable conexión: Medio físico de transmisión de la información desde Internet a nuestro Pc y viceversa ");
         	}
         	if (item == "proveedor") {
-        		$("#lapista").text("Pista sobre proveedor");
+        		$("#lapista").text("Proveedor: Suministra internet a los clientes, es la compañía encargada, como Vodafone o Telefónica.");
         	}
         	if (item == "navegador") {
-        		$("#lapista").text("Pista sobre navegador");
+        		$("#lapista").text("Navegador: Software que nos permite “navegar” por y obtener información frente a una búsqueda realizada.");
         	}
       }
     });
