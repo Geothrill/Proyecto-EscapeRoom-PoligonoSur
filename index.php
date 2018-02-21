@@ -241,7 +241,7 @@
 
 					<div id="pista" class="rounded">
 						<p><strong>Pista de la lupa</strong></p>
-						<p id="lapista">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"</p>
+						<p id="lapista"></p>
 					</div>
 <!-- Fin Juan, perfil usuario -->
 				</div>

@@ -46,10 +46,10 @@ body {
     height: 5%;
 }
 #libro {
-    left: 15%;
-    top: 40%;
-    width: 10%;
-    height: 10%;
+    left: 10%;
+    top: 35%;
+    width: 22%;
+    height: 15%;
 }
 #movil {
     left: 20%;
@@ -85,17 +85,17 @@ body {
 }
 
 #pc {
-    left: 81.5%;
-    top: 38%;
-    width: 9%;
-    height: 11%;
+    left: 84%;
+    top: 67%;
+    width: 12%;
+    height: 13%;
 }
 
 #navegador {
-    left: 80%;
-    top: 40%;
-    width: 1%;
-    height: 2%;
+    left: 81.5%;
+    top: 38%;
+    width: 5%;
+    height: 7%;
 }
 
 /* Implementado por juan el 08/02 */
