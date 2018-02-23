@@ -21,7 +21,16 @@ return false;
 $('#pc').click(function(){
   overlay.show();
   overlay.appendTo(document.body);
+  console.log("activado")
+  var pc = "pc";
+  $.post("connection.php", {item: pc});
   $(' .popup-pc').show();
+
+  $.post("connection.php",function (item) {
+      item = $.parseJSON(item);
+      console.log(item);
+    });
+
 });
 
 $('#libro').click(function(){
