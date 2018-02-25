@@ -1,6 +1,9 @@
 window.onload = function () {
   //reloj
     var reloj = document.querySelector('#cuentaAtras'),
+       /* Tiempo
+        contador = new CountDownTimer(300),
+        contadorObj = CountDownTimer.parse(300); */
         contador = new CountDownTimer(300),
         contadorObj = CountDownTimer.parse(300);
 
@@ -17,4 +20,5 @@ window.onload = function () {
         seconds = seconds < 10 ? "0" + seconds : seconds;
         reloj.textContent = minutes + ':' + seconds;
     }
+
   }

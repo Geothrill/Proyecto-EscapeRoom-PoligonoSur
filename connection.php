@@ -1,7 +1,7 @@
 <?php
 	// Conectando, seleccionando la base de datos
 	// $mysqli = new mysqli('HOST', 'USER', 'PASS', 'NOMBRE_BD');
-	$mysqli = new mysqli('localhost', 'root', 'alumnado', 'juego');
+	$mysqli = new mysqli('localhost', 'root', '', 'juego');
 	$mysqli->set_charset("utf8");
 
 	/* En caso de que haya error... */
@@ -13,7 +13,7 @@
 		exit;
 	}
 
-	
+
 	//echo $_POST["item"];
 	$item = $_POST["item"];
 
@@ -45,13 +45,13 @@
 
 	/* Obtención de base de datos
 	$resp = $resultado->fetch_assoc();
-	echo $resp['res1'];	
+	echo $resp['res1'];
 	json_encode($resp);*/
-	
+
 
 	// Ejemplo de obtener muchos datos
 
-	
+
 	$res=[];
 
 	while($row = $resultado->fetch_object()){
@@ -64,7 +64,7 @@
 	    "res3"=>$row->res3,
 	    "correcta"=>$row->correcta
 		);
-	    
+
 	    array_push($res, $fila);
 	}
 	echo json_encode($res);

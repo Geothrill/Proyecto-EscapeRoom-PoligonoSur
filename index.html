@@ -28,7 +28,7 @@
 </head>
 <body class="container-fluid">
 
-	
+
 
 <!-- Parte Javi, Popup de inicio -->
 	<div class='popup'>
@@ -52,8 +52,10 @@
 
 					<br/>
 					<h2>Introduzca su nombre</h2>
+					<span id="avisoNombre" style="color: red">*El nombre no puede estar <b>vacío</b> ni ocupar más de <b>27</b> caracteres</span><br>
 					<input type="text" class="usuario" id="usuario"><br><br>
-					<button type="button" class="btn btn-primary cerrar start" id="iniciarJuego">START</button>
+					<button type="button" class="btn btn-primary cerrar start" id="iniciarJuego">Comenzar</button>
+
 				</p>
 			</div>
 		</div>
@@ -69,96 +71,25 @@
 						</div>
 					</div>
 				</div>
-
-
-
 									<div class='popup-pc otroPopup' style="display: none;">
 										<div class='cnt223 text-center'>
-											<h4 class="text-center">PC</h4>
+											<h4 class="text-center" id="tituloPopup"></h4>
 											<p id="preguntas-pc"></p>
-											<input type="radio" name="radio-pc" id="respuesta1-pc"/><br>
-											<input type="radio" name="radio-pc" id="respuesta2-pc"/><br>
-											<input type="radio" name="radio-pc" id="respuesta3-pc"/><br>
-										</div>
-									</div>
-
-
-									<div class='popup-libro otroPopup' style="display: none;">
-										<div class='cnt223 text-center'>
-											<h4 class="text-center">Libro</h4>
-											<p id="preguntas-libro"></p>
-											<input type="radio" name="radio-libro" id="respuesta1-libro"/><br>
-											<input type="radio" name="radio-libro" id="respuesta2-libro"/><br>
-											<input type="radio" name="radio-libro" id="respuesta3-libro"/><br>
-										</div>
-									</div>
-
-
-									<div class='popup-movil otroPopup' style="display: none;">
-										<div class='cnt223 text-center'>
-											<h4 class="text-center">Movil</h4>
-											<p id="preguntas-movil"></p>
-											<input type="radio" name="radio-movil" id="respuesta1-movil"/><br>
-											<input type="radio" name="radio-movil" id="respuesta2-movil"/><br>
-											<input type="radio" name="radio-movil" id="respuesta3-movil"/><br>
-										</div>
-									</div>
-
-
-									<div class='popup-router otroPopup' style="display: none;">
-										<div class='cnt223 text-center'>
-											<h4 class="text-center">Router</h4>
-											<p id="preguntas-router"></p>
-											<input type="radio" name="radio-router" id="respuesta1-router"/><br>
-											<input type="radio" name="radio-router" id="respuesta2-router"/><br>
-											<input type="radio" name="radio-router" id="respuesta3-router"/><br>
-										</div>
-									</div>
-
-
-									<div class='popup-cable otroPopup' style="display: none;">
-										<div class='cnt223 text-center'>
-											<h4 class="text-center">Cable</h4>
-											<p id="preguntas-cable"></p>
-											<input type="radio" name="radio-cable" id="respuesta1-cable"/><br>
-											<input type="radio" name="radio-cable" id="respuesta2-cable"/><br>
-											<input type="radio" name="radio-cable" id="respuesta3-cable"/><br>
-										</div>
-									</div>
-
-
-									<div class='popup-proveedor otroPopup' style="display: none;">
-										<div class='cnt223 text-center'>
-											<h4 class="text-center">Proveedor</h4>
-											<p id="preguntas-proveedor"></p>
-											<input type="radio" name="radio-proveedor" id="respuesta1-proveedor"/><br>
-											<input type="radio" name="radio-proveedor" id="respuesta2-proveedor"/><br>
-											<input type="radio" name="radio-proveedor" id="respuesta3-proveedor"/><br>
-										</div>
-									</div>
-
-
-									<div class='popup-navegador otroPopup' style="display: none;">
-										<div class='cnt223 text-center' >
-											<h4 class="text-center">Navegador</h4>
-											<p id="preguntas-navegador"></p>
-											<input type="radio" name="radio-navegador" id="respuesta1-navegador"/><br>
-											<input type="radio" name="radio-navegador" id="respuesta2-navegador"/><br>
-											<input type="radio" name="radio-navegador" id="respuesta3-navegador"/><br>
+											<div id="opciones-pc">
+											</div>
 										</div>
 									</div>
 
 <!-- Fin Javi, Popup de inicio -->
 
 				<div class="img" style="background-image: url('images/bg_ScapeRoom.jpg');">
-					<p id="cuentaAtras" class="reloj"></p>
-					<div class="item" id="pc"></div>
-					<div class="item" id="libro"></div>
-					<div class="item" id="movil"></div>
-					<div class="item" id="router"></div>
-					<div class="item" id="cable"></div>
-					<div class="item" id="proveedor"></div>
-					<div class="item" id="navegador"></div>
+					<div class="item" id="pc">pc</div>
+					<div class="item" id="libro">libro</div>
+					<div class="item" id="movil">movil</div>
+					<div class="item" id="router">router</div>
+					<div class="item" id="cable">cable</div>
+					<div class="item" id="proveedor">proveedor</div>
+					<div class="item" id="navegador">navegador</div>
 					<div class="" id="lupa">
 						<img src="./images/lupa.png" alt="">
 					</div>
@@ -177,8 +108,8 @@
 					<div id="info" class="rounded">
 						<p><strong>Has encontrado</strong></p>
 						<h3 class="display-4"><strong class="text-primary" id="itemsactuales">0</strong><strong class="text-danger">/7</strong></h3><i>items</i><hr>
-						<p><strong>Tienes</strong></p>
-						<h3 class="display-4"><strong class="text-primary" id="puntosactuales">0</strong></h3><i>puntos</i>
+						<p><strong>Tiempo</strong></p>
+						<h3 id="cuentaAtras" class="reloj" class="display-4"></h3>
 					</div>
 
 					<div id="vidas" class="rounded">
@@ -190,7 +121,7 @@
 
 
 					<div id="pista" class="rounded">
-						<p><strong>Pista de la lupa</strong></p>
+						<p><span class="glyphicon glyphicon-search"><strong class="glyphicon glyphicon-search">Pista de la lupa</strong></span></p>
 						<p id="lapista"></p>
 					</div>
 <!-- Fin Juan, perfil usuario -->

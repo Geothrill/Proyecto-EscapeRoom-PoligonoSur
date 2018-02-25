@@ -41,25 +41,25 @@ body {
 }
 #router {
     left: 87%;
-    top: 55%;
+    top: 59%;
     width: 5%;
     height: 5%;
 }
 #libro {
     left: 10%;
-    top: 35%;
+    top: 39%;
     width: 22%;
     height: 15%;
 }
 #movil {
     left: 20%;
-    top: 60%;
+    top: 61%;
     width: 5%;
     height: 5%;
 }
 #cable {
     left: 72%;
-    top: 68%;
+    top: 72%;
     width: 10%;
     height: 5%;
 }
@@ -74,7 +74,7 @@ body {
     position:absolute;
     background-color: red;
     left: 3%;
-    top: 82%;
+    top: 79%;
     width: 5%;
     height: 7%;
 }
@@ -86,14 +86,14 @@ body {
 
 #pc {
     left: 84%;
-    top: 67%;
+    top: 71%;
     width: 12%;
     height: 13%;
 }
 
 #navegador {
     left: 81.5%;
-    top: 38%;
+    top: 42%;
     width: 5%;
     height: 7%;
 }
@@ -244,7 +244,7 @@ cursor: pointer;
     font-family: run;
     border-radius: 15px;
     font-size: 2.5em;
-    width: 60%;
+    width: 85%;
     height: 20%;
     letter-spacing: 10px;
 }
@@ -259,8 +259,21 @@ cursor: pointer;
 	z-index: 101;
 }
 .reloj{
+    
 	font-weight: bold;
 	font-size: 45px;
 	color: red;
 }
 /* De pepe */
+
+
+input[type="radio"] {
+  vertical-align: baseline;
+    padding: 10px;
+    margin: 10px;
+
+}
+
+#gameover {
+    width: 200px;
+}
