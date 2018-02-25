@@ -43,10 +43,6 @@ function mostrarRanking(){
 }
 
 
-var lista = [];
-var contadorItem=0;
-var errores =0;
-
 // Pantalla principal después de comenzar juego
 
 document.querySelector('button#iniciarJuego').addEventListener('click', function() {
@@ -76,9 +72,12 @@ document.querySelector('button#iniciarJuego').addEventListener('click', function
 
 
 
-// Función cuando repites  click en un mismo item. 
-
+// Función cuando repites  click en un mismo item.
+var lista = [];
+var contadorItem=0;
+var errores =0;
 // JUAN => ESTÁ BUG, SOLUCIÓN PROPUESTA: DEJAR EL IF EN BLANCO PARA QUE NO SE ACTIVE NADA.
+// pepe => el fallar en una pregunta tambien esta bug, acabara el juego
 $('.item').click(function(){
   if (lista.includes($(this).text())) {
     overlay.show();
@@ -90,13 +89,16 @@ $('.item').click(function(){
     $('#preguntas-pc').text("Ya tienes este item");
       $('#opciones-pc').append($('<p>BUSCA LOS DEMAS!!!!</p>'));
       setTimeout("$('.popup-pc').hide();", 2000);
-      overlay.appendTo(document.body).remove();
+      setTimeout( function () {
+        overlay.appendTo(document.body).remove();
+      }, 2000);
   }
+
+
   else {
   overlay.show();
   overlay.appendTo(document.body);
   console.log("activado");
-
   var elem = $(this).text();
   lista.push(elem);
   $(' .popup-pc').show();
@@ -130,7 +132,7 @@ $("#tituloPopup").empty();
           var tiempo =$("#cuentaAtras").text();
           $("#puntosactuales").text(tiempo);
            $('#tituloPopup').empty();
-          $('#tituloPopup').text("¡Has conseguido encontrar los 7 objetos ocultos y responder correctamente a todas las preguntas!")  
+          $('#tituloPopup').text("¡Has conseguido encontrar los 7 objetos ocultos y responder correctamente a todas las preguntas!")
           $('#preguntas-pc').empty();
           $('#opciones-pc').empty();
            $('#preguntas-pc').empty();
@@ -144,7 +146,9 @@ $("#tituloPopup").empty();
           $('#preguntas-pc').text("FELICIDADES");
           $('#opciones-pc').append($('<p> ITEM ADQUIRIDO </p>').css({backgroundColor: 'green'}));
           setTimeout("$('.popup-pc').hide();", 2000);
-          overlay.appendTo(document.body).remove();
+          setTimeout( function () {
+            overlay.appendTo(document.body).remove();
+          }, 2000);
         }
       }else{
         console.log("error");
@@ -164,9 +168,9 @@ $("#tituloPopup").empty();
         $('#opciones-pc').append($('<input type="radio" id="res-pc1" name="opciones" value="1"><span id="pc1">' + item[1].res1 + '</span></input><br/>'));
         $('#opciones-pc').append($('<input type="radio" id="res-pc2" name="opciones" value="2"><span id="pc2">' + item[1].res2 + '</span></input><br />'));
         $('#opciones-pc').append($('<input type="radio" id="res-pc3" name="opciones" value="3"><span id="pc3">' + item[1].res3 + '</span></input><br />'));
-        
+
         // Evento opción 2
-       
+
         $('input[type=radio][name=opciones]').change(function() {
           if (this.value == item[1].correcta) {
             contadorItem++;
@@ -186,7 +190,9 @@ $("#tituloPopup").empty();
               $('#preguntas-pc').text("FELICIDADES");
               $('#opciones-pc').append($('<p> ITEM ADQUIRIDO </p>').css({backgroundColor: 'green'}));
               setTimeout("$('.popup-pc').hide();", 2000);
-              overlay.appendTo(document.body).remove();
+              setTimeout( function () {
+                overlay.appendTo(document.body).remove();
+              }, 2000);
             }
           }
           else {
@@ -208,7 +214,7 @@ $("#tituloPopup").empty();
             $('#opciones-pc').append($('<input type="radio" id="res-pc2" name="opciones" value="2"><span id="pc2">' + item[2].res2 + '</span></input><br />'));
             $('#opciones-pc').append($('<input type="radio" id="res-pc3" name="opciones" value="3"><span id="pc3">' + item[2].res3 + '</span></input><br />'));
             }
-            
+
             // Evento opción 3
 
             $('input[type=radio][name=opciones]').change(function() {
@@ -230,7 +236,9 @@ $("#tituloPopup").empty();
               $('#preguntas-pc').text("FELICIDADES");
               $('#opciones-pc').append($('<p> ITEM ADQUIRIDO </p>').css({backgroundColor: 'green'}));
               setTimeout("$('.popup-pc').hide();", 2000);
-              overlay.appendTo(document.body).remove();
+              setTimeout( function () {
+                overlay.appendTo(document.body).remove();
+              }, 2000);
             }
               }
               else {
