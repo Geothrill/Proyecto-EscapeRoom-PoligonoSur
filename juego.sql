@@ -67,7 +67,7 @@ CREATE TABLE cable (
 
 CREATE TABLE ranking (
     jugador varchar(255),
-    tiempo long
+    tiempo int
 );
 
 
