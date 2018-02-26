@@ -188,7 +188,7 @@ $.post("connection.php",{item: elem}, function (item) {
           if (this.value == item[1].correcta) {
             contadorItem++;
             $("#itemsactuales").text(contadorItem).animate({fontSize: "1.7em"}, 400).animate({fontSize: "1em"});;
-            if(contadorItem==1){
+            if(contadorItem==7){
               registroRanking();
           // Función para parar el tiempo y mostrarlo en la sección "Tiempo" del perfil.
           pararTiempo();
@@ -216,7 +216,7 @@ $.post("connection.php",{item: elem}, function (item) {
         $('#opciones-pc').empty();
         errores++;
         $("#vida"+errores).hide();
-        if(errores==2){
+        if(errores==3){
           $('#tituloPopup').empty();
           $('#opciones-pc').empty();
           $('#preguntas-pc').empty();
@@ -249,7 +249,7 @@ $.post("connection.php",{item: elem}, function (item) {
              if (this.value == item[2].correcta) {
                contadorItem++;
                $("#itemsactuales").text(contadorItem).animate({fontSize: "1.7em"}, 400).animate({fontSize: "1em"});;
-               if(contadorItem==1){
+               if(contadorItem==7){
                 registroRanking();
           // Función para parar el tiempo y mostrarlo en la sección "Tiempo" del perfil.
           pararTiempo();
@@ -277,7 +277,7 @@ $.post("connection.php",{item: elem}, function (item) {
         $('#opciones-pc').empty();
         errores++;
         $("#vida"+errores).hide();
-        if(errores==2){
+        if(errores==3){
           $('#tituloPopup').empty();
           $('#opciones-pc').empty();
           $('#preguntas-pc').empty();
