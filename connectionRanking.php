@@ -1,7 +1,7 @@
 <?php
 	// Conectando, seleccionando la base de datos
 	// $mysqli = new mysqli('HOST', 'USER', 'PASS', 'NOMBRE_BD');
-	$mysqli = new mysqli('localhost', 'root', '', 'juego');
+	$mysqli = new mysqli('localhost', 'root', 'root', 'juego');
 	$mysqli->set_charset("utf8");
 
 	/* En caso de que haya error... */
