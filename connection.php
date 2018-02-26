@@ -1,7 +1,7 @@
 <?php
 	// Conectando, seleccionando la base de datos
 	// $mysqli = new mysqli('HOST', 'USER', 'PASS', 'NOMBRE_BD');
-	$mysqli = new mysqli('localhost', 'root', 'alumnado', 'juego');
+	$mysqli = new mysqli('localhost', 'root', '', 'juego');
 	$mysqli->set_charset("utf8");
 
 	/* En caso de que haya error... */
@@ -12,12 +12,13 @@
 		echo "Error: " . $mysqli->connect_error . "\n";
 		exit;
 	}
-
-
-	//echo $_POST["item"];
 	$item = $_POST["item"];
 
 	$sql = 'select * from '.$item.';';
+
+
+	// objeto que contiene tablas, datos, etc...
+	$resultado = $mysqli->query($sql);
 
 	// Si la consulta falla....
 	if(!$resultado = $mysqli->query($sql)) {
@@ -34,19 +35,6 @@
 		echo "No hay datos contenidos.";
 		exit;
 	}
-
-	// objeto que contiene tablas, datos, etc...
-	$resultado = $mysqli->query($sql);
-	//echo $resultado;
-	//var_dump($resultado);
-	//json_encode($resultado);
-
-
-
-	/* Obtención de base de datos
-	$resp = $resultado->fetch_assoc();
-	echo $resp['res1'];
-	json_encode($resp);*/
 
 
 	// Ejemplo de obtener muchos datos

@@ -281,3 +281,12 @@ input[type="radio"] {
 #tiempoFinal {
     display: none;
 }
+
+.tablaRanking {
+    width: 100%;
+    border: 1px solid black;
+}
+.celdaRanking {
+    width: 100%;
+    border: 1px solid black;
+}

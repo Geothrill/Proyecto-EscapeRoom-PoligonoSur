@@ -37,15 +37,23 @@ function registroRanking(){
   }
   var player =$(".playername").text();
 
-  $.post("connectionRanking.php", {player: player, marca: marca}, function(result){
-    result = $.parseJSON(result);
-    console.log("result");
-    //$('#preguntas-pc').text(res[0]);
+  $.post("connectionRanking.php", {player: player, marca: marca}, function(data){
+    data = $.parseJSON(data);
+    console.log("result ===>" + data[0].jugador + " -- " + data[0].tiempo);
+
+    $('#preguntas-pc').empty();
+    $('#preguntas-pc').append("<table class='tablaRanking'><tr><th>Nombre</th><th>Tiempo</th></tr>");
+    for (var i = 0; i <= 5; i++) {
+      $('#preguntas-pc').append(
+        "<tr class='tablaRanking'><td>"
+        + data[i].jugador +
+        "</td><td>"
+        + data[i].tiempo +
+        "</td></tr>"
+        );
+    }
+    $('#preguntas-pc').append("</table>");
   });
-  console.log("********************")
-
-
-
 };
 
 
