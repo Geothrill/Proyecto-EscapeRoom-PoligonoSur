@@ -126,11 +126,11 @@ $("#tituloPopup").empty();
     $('input[type=radio][name=opciones]').change(function() {
       if (this.value == item[0].correcta) {
         contadorItem++;
-        $("#itemsactuales").text(contadorItem).animate({fontSize: "2em"}, 400).animate({fontSize: "1em"});;
+        $("#itemsactuales").text(contadorItem).animate({fontSize: "1.7em"}, 400).animate({fontSize: "1em"});;
         if(contadorItem==1){
           registroRanking();
-          var tiempo =$("#cuentaAtras").text();
-          $("#puntosactuales").text(tiempo);
+          // Función para parar el tiempo y mostrarlo en la sección "Tiempo" del perfil.
+          pararTiempo();
            $('#tituloPopup').empty();
           $('#tituloPopup').text("¡Has conseguido encontrar los 7 objetos ocultos y responder correctamente a todas las preguntas!")
           $('#preguntas-pc').empty();
@@ -155,7 +155,7 @@ $("#tituloPopup").empty();
         $('#opciones-pc').empty();
         errores++;
         $("#vida"+errores).hide();
-          if(errores==1){
+          if(errores==2){
             $('#tituloPopup').empty();
             $('#opciones-pc').empty();
             $('#preguntas-pc').empty();
@@ -168,6 +168,10 @@ $("#tituloPopup").empty();
         $('#opciones-pc').append($('<input type="radio" id="res-pc1" name="opciones" value="1"><span id="pc1">' + item[1].res1 + '</span></input><br/>'));
         $('#opciones-pc').append($('<input type="radio" id="res-pc2" name="opciones" value="2"><span id="pc2">' + item[1].res2 + '</span></input><br />'));
         $('#opciones-pc').append($('<input type="radio" id="res-pc3" name="opciones" value="3"><span id="pc3">' + item[1].res3 + '</span></input><br />'));
+
+
+
+
 
         // Evento opción 2
 
@@ -273,4 +277,16 @@ function validarUsuario(nombre){
   } else {
     location.reload();
   }
+}
+
+function pararTiempo() {
+  var relojobj = $("#cuentaAtras");
+  var tiempoFinal = $("#tiempoFinal");
+  var tiempo = $("#cuentaAtras").text();
+  // Hay que destruirlo porque se actualiza cada seg.
+  relojobj.remove();
+  tiempoFinal.text(tiempo);
+  tiempoFinal.css({"display" : "inline", "color" : "green"});
+  tiempoFinal.delay(1500).animate({fontSize: "5em"}, 400).animate({fontSize: "3.5em"});;
+  console.log("Tiempo ==> " + tiempo + ", Objeto ==> " + $("#cuentaAtras"));
 }

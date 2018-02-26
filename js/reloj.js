@@ -4,8 +4,8 @@ window.onload = function () {
        /* Tiempo
         contador = new CountDownTimer(300),
         contadorObj = CountDownTimer.parse(300); */
-        contador = new CountDownTimer(300),
-        contadorObj = CountDownTimer.parse(300);
+        contador = new CountDownTimer(2),
+        contadorObj = CountDownTimer.parse(2);
 
     darForma(contadorObj.minutes, contadorObj.seconds);
 
