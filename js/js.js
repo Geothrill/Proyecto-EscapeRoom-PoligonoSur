@@ -162,9 +162,16 @@ $("#tituloPopup").empty();
             $('#opciones-pc').append($('<p> TE QUEDASTE SIN VIDAS </p>'));
             $('#tituloPopup').append($('<input type="button" class="btn btn-primary start" onclick="location.reload()" id="comenzar" name="comenzar" value="Volver a jugar"></input><br/><br/>'));
           }else{
-        alert("RESPUESTA INCORRECTA, SE TE RESTARA 1 VIDA");
-        $('#preguntas-pc').text(item[1].pregunta);
-        console.log(item[1].correcta);
+        setTimeout(function () {
+$('#preguntas-pc').empty();
+$('#preguntas-pc').text(item[1].pregunta);
+$('#opciones-pc').show();      
+              }, 2000);
+            
+$('#opciones-pc').hide(); 
+$('#preguntas-pc').text('Pierdes 1 vida y tienes que responder a otra pregunta');
+           
+            console.log(item[1].correcta);
         $('#opciones-pc').append($('<input type="radio" id="res-pc1" name="opciones" value="1"><span id="pc1">' + item[1].res1 + '</span></input><br/>'));
         $('#opciones-pc').append($('<input type="radio" id="res-pc2" name="opciones" value="2"><span id="pc2">' + item[1].res2 + '</span></input><br />'));
         $('#opciones-pc').append($('<input type="radio" id="res-pc3" name="opciones" value="3"><span id="pc3">' + item[1].res3 + '</span></input><br />'));
@@ -211,8 +218,15 @@ $("#tituloPopup").empty();
             $('#opciones-pc').append($('<p> TE QUEDASTE SIN VIDAS </p>'));
             $('#tituloPopup').append($('<input type="button" class="btn btn-primary start" id="comenzar" name="comenzar" onclick="location.reload()" value="Volver a jugar"></input><br/><br/>'));
           }else{
-            alert("RESPUESTA INCORRECTA, SE TE RESTARA 1 VIDA");
-            $('#preguntas-pc').text(item[2].pregunta);
+            setTimeout(function () {
+$('#preguntas-pc').empty();
+$('#preguntas-pc').text(item[2].pregunta);
+$('#opciones-pc').show();      
+              }, 2000);
+            
+$('#opciones-pc').hide(); 
+$('#preguntas-pc').text('Pierdes 1 vida y tienes que responder a otra pregunta');
+           
             console.log(item[2].correcta);
             $('#opciones-pc').append($('<input type="radio" id="res-pc1" name="opciones" value="1"><span id="pc1">' + item[2].res1 + '</span></input><br/>'));
             $('#opciones-pc').append($('<input type="radio" id="res-pc2" name="opciones" value="2"><span id="pc2">' + item[2].res2 + '</span></input><br />'));
