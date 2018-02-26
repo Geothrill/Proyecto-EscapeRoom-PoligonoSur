@@ -35,8 +35,22 @@
 		exit;
 	}
 
+
+	/* Envío de ranking al cliente */
 	// objeto que contiene tablas, datos, etc...
-	//$resultado = $mysqli->query($sql);
+	$res=[];
+	$sql1 = 'select * from ranking;';
+	$resultado1 = $mysqli->query($sql1);
+
+	while($row = $resultado1->fetch_object()){
+
+		$fila=array(
+		"jugador"=>$row->jugador,
+	    "tiempo"=>$row->tiempo
+		);
+	    array_push($res, $fila);
+	}
+	echo json_encode($res);
 	
 
 	$resultado->free();

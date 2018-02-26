@@ -1,4 +1,7 @@
 var marca = 0;
+var lista = [];
+var contadorItem=0;
+var errores =0;
 
 $(function(){
   var overlay = $('<div id="overlay"></div>');
@@ -22,27 +25,28 @@ $(function(){
 //registra tiempo y usuario y los mete en un array
 
 function registroRanking(){
-
-  var tiempo =$("#cuentaAtras").text();
-  var arrayTiempo = tiempo.split(":");
-  var min = parseInt(arrayTiempo[0])*60;
-  var seg = parseInt(arrayTiempo[1]);
-  marca = min+seg;
+  if (errores==1) { // 3
+    marca = 0;
+  } else {
+    var tiempo =$("#cuentaAtras").text();
+    var arrayTiempo = tiempo.split(":");
+    var min = parseInt(arrayTiempo[0])*60;
+    var seg = parseInt(arrayTiempo[1]);
+    marca = min+seg;
+    
+  }
   var player =$(".playername").text();
-  //alert(marca);
-  //alert(player);
 
-  //var array =new Array();
-  //array["nombre"]=player;
-  //array["puntuacion"]=marca;
-  //console.log(array);
-  $.post("connectionRanking.php", {player: player, marca: parseInt(marca)});
+  $.post("connectionRanking.php", {player: player, marca: marca}, function(result){
+    result = $.parseJSON(result);
+    console.log("result");
+    //$('#preguntas-pc').text(res[0]);
+  });
+  console.log("********************")
+
+
 
 };
-
-function mostrarRanking(){
-  // BBDD?
-}
 
 
 // Pantalla principal después de comenzar juego
@@ -73,11 +77,6 @@ document.querySelector('button#iniciarJuego').addEventListener('click', function
   }, parseInt(marca)*1000) });
 
 
-
-// Función cuando repites  click en un mismo item.
-var lista = [];
-var contadorItem=0;
-var errores =0;
 // JUAN => ESTÁ BUG, SOLUCIÓN PROPUESTA: DEJAR EL IF EN BLANCO PARA QUE NO SE ACTIVE NADA.
 // pepe => el fallar en una pregunta tambien esta bug, acabara el juego
 $('.item').click(function(){
@@ -157,7 +156,10 @@ $.post("connection.php",{item: elem}, function (item) {
         $('#opciones-pc').empty();
         errores++;
         $("#vida"+errores).hide();
-        if(errores==2){
+        if(errores==1){
+          registroRanking();
+          // Función para parar el tiempo y mostrarlo en la sección "Tiempo" del perfil.
+          pararTiempo();
           $('#tituloPopup').empty();
           $('#opciones-pc').empty();
           $('#preguntas-pc').empty();
