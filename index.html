@@ -5,6 +5,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Latest compiled and minified CSS -->
+	<link rel="icon"
+      type="image/png"
+      href="http://atroposescape.es/wp-content/uploads/2017/12/Icono-Interrogante_Rojo.png">
+	<link rel="stylesheet" type="text/css" href="style/Normalize.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -33,10 +37,14 @@
 <!-- Parte Javi, Popup de inicio -->
 	<div class='popup'>
 		<div class='cnt223 text-center'>
-			<h1>Nombre del Juego</h1>
-			<h2>Descripcion</h2>
+			<div>
+				<img id="logoJuego" src="http://atroposescape.es/wp-content/uploads/2017/12/Icono-Interrogante_Rojo.png">
+				<h1>Classroom Escape</h1>
+			</div>
+			<hr>
+			<h2>Cómo jugar</h2>
 			<p>
-				En la oficina se encuentran ubicados <strong>7 elementos</strong> que nos facilitaran el acceso a la comunicacion, responde bien a las preguntas sobre ellos en el menor tiempo posible y conseguiras  .
+				En esta oficina se encuentran ubicados <strong>7 elementos</strong> que nos facilitan el acceso a la información. responde bien a las preguntas sobre ellos en el menor tiempo posible y conseguiras 
 				<p>
 
 					<h2>Reglas del juego</h2>
@@ -44,14 +52,14 @@
 						<img src="images/lupa.png" alt="">
 					</div id="reglas">
 					<ol class="text-left" >
-						<li>Dispones de 5 minutos para:</li>
-						<li>Encontrar los 7 objetos que nos ayudaran a acceder a informacion</li>
-						<li>Utilice la Lupa para facilitar su busqueda</li>
-						<li>Una vez encontrado, ahora toca responder bien a la pregunta</li>
+						<li>Encontrar los <b>7 objetos ocultos</b> en la oficina</li>
+						<li>Mueve la <b>lupa</b> para buscar <b>pistas</b></li>
+						<li>Cada pregunta incorrecta te restará 1 vida</li>
+						<li>Tienes <b>5 minutos</b> para encontrar los <b>7</b> objetos ocultos</li>
 					</ol>
 
 					<br/>
-					<h2>Introduzca su nombre</h2>
+					<h2>Tu nombre</h2>
 					<span id="avisoNombre" style="color: red">*El nombre no puede estar <b>vacío</b> ni ocupar más de <b>27</b> caracteres</span><br>
 					<input type="text" class="usuario" id="usuario"><br><br>
 					<button type="button" class="btn btn-primary cerrar start" id="iniciarJuego">Comenzar</button>

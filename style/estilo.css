@@ -204,12 +204,13 @@ box-shadow: 0 2px 5px #000;
 clear: both;
         /* text-align: justify; */
     font-size: 1.6em;
-    font-family: Gate;
+    font-family: arial;
 
 }
 .cnt223 h1{
-font-family: Gate;
-font-size: 4em;
+font-family: luna;
+padding: 5px 0 5px 0;
+font-size: 2.4em;
 color: red
 }
 .cnt223 h2{
@@ -234,16 +235,20 @@ cursor: pointer;
 
 /* aqui se controla las fuentes de la pagina de inicio */
 
+.imgstart {
+    width: 90%;
+}
+
 .popup li{
   letter-spacing: 2px;
-  font-family: luna;
-  font-size: 1em;
+  font-family: arial;
+  font-size: 1.2em;
 }
 
 .popup p{
     letter-spacing: 2px;
-  font-family: luna;
-  font-size: 1em;
+  font-family: arial;
+  font-size: 1.2em;
 }
 
 .popup img{
@@ -254,7 +259,7 @@ cursor: pointer;
 }
 
 .usuario{
-    font-family: Gate;
+    font-family: arial;
     font-size: 2em;
     text-align: center;
 }
@@ -315,7 +320,7 @@ input[type="radio"] {
 
 #opciones-pc{
   letter-spacing: 2px;
-  font-family: luna;
+  font-family: arial;
   font-size: 1em;
 
 }
@@ -323,7 +328,7 @@ input[type="radio"] {
 #preguntas-pc{
     color: blue;
   letter-spacing: 2px;
-  font-family: luna;
+  font-family: arial;
   font-size: 1.3em;
 
 }
@@ -331,16 +336,17 @@ input[type="radio"] {
 #tituloPopup{
 
   letter-spacing: 2px;
-  font-family: luna;
-  font-size: 1.6em;
+  font-family: consolas;
+  font-size: 1.8em;
+  font-weight: bold;
 
 }
 
 .tablaRanking{
-    font-family: serif;
+    font-family: consolas;
 }
 
-.sinVidas{
-  font-family: luna;
-  font-size: 1.6em;
+#logoJuego {
+    width: 7%;
+
 }

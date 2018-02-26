@@ -40,7 +40,7 @@ function registroRanking(){
   $.post("connectionRanking.php", {player: player, marca: marca}, function(data){
     data = $.parseJSON(data);
     $('#preguntas-pc').empty();
-    $('#preguntas-pc').append("<h3>RANKING<h3>");
+    $('#preguntas-pc').append("<h3>MEJORES JUGADORES<h3>");
     $('#preguntas-pc').append("<table class='tablaRanking'><tr><th class='nombre' id='cabeTabla'>Nombre</th><th class='tiempo' id='cabeTabla'>Puntuacion</th></tr>");
     for (var i = 0; i <= 5; i++) {
       $('.nombre').append(
@@ -72,12 +72,10 @@ document.querySelector('button#iniciarJuego').addEventListener('click', function
     $('#opciones-pc').empty();
     $('#preguntas-pc').empty();
     $("#tituloPopup").empty();
-    $('#preguntas-pc').text("¡SE TE HA ACABADO EL TIEMPO!");
+    $('#tituloPopup').text("¡SE ACABÓ EL TIEMPO!");
     $('#opciones-pc').append($('<input type="button" class="btn btn-primary start" id="restart" onclick="location.reload()" value="Reintentar"></input><br/><br/> <img id="gameover" src="images/cry.png">'));
     // Animación de game over y reintentar.
-    $("#gameover").delay("2000").fadeOut("slow", function(){
-        // Mostrar ranking
-      });
+    registroRanking();
   }, parseInt(marca)*1000) });
 
 
@@ -92,8 +90,8 @@ $('.item').click(function(){
     $('#opciones-pc').empty();
     $('#preguntas-pc').empty();
     $("#tituloPopup").empty();
-    $('#preguntas-pc').text("Ya tienes este item");
-    $('#opciones-pc').append($('<p>BUSCA LOS DEMAS!!!!</p>'));
+    $('#preguntas-pc').text("¡Ya has encontrado este item!");
+    $('#opciones-pc').append($('<p>¡BUSCA LOS DEMÁS!</p>'));
     setTimeout("$('.popup-pc').hide();", 2000);
     setTimeout( function () {
       overlay.appendTo(document.body).remove();
@@ -101,7 +99,6 @@ $('.item').click(function(){
   } else {
     overlay.show();
     overlay.appendTo(document.body);
-    console.log("activado");
     var elem = $(this).text();
     lista.push(elem);
     $(' .popup-pc').show();
@@ -129,26 +126,21 @@ $.post("connection.php",{item: elem}, function (item) {
       if (this.value == item[0].correcta) {
         contadorItem++;
         $("#itemsactuales").text(contadorItem).animate({fontSize: "1.7em"}, 400).animate({fontSize: "1em"});;
-        if(contadorItem==1){
+        if(contadorItem==7){
           registroRanking();
-
-          // Función para parar el tiempo y mostrarlo en la sección "Tiempo" del perfil.
-
           pararTiempo();
-
+          // Función para parar el tiempo y mostrarlo en la sección "Tiempo" del perfil.
           $('#tituloPopup').empty();
-          $('#tituloPopup').text("¡Has conseguido encontrar los 7 objetos ocultos y responder correctamente a todas las preguntas!")
+          $('#tituloPopup').append("<p style='color:green'>¡HAS GANADO!</p>").animate({fontSize: "4em"}, 400).animate({fontSize: "2em"});;
           $('#preguntas-pc').empty();
           $('#opciones-pc').empty();
           $('#preguntas-pc').empty();
-          // Mostrar ranking aquí.
           $('#preguntas-pc').text("Marca = " + marca);
           $('#opciones-pc').append($('<img id="gameover" src="images/win.png"><input type="button" class="btn btn-primary start" id="comenzar" onclick="location.reload()" name="comenzar" value="Volver a jugar"></input><br/><br/>'));
         }else{
           $('#opciones-pc').empty();
           $('#preguntas-pc').empty();
-          $('#preguntas-pc').text("FELICIDADES");
-          $('#opciones-pc').append($('<p> ITEM ADQUIRIDO </p>').css({backgroundColor: 'green'}));
+          $('#opciones-pc').append($('<p> ¡ITEM ENCONTRADO! </p>').css({'color': 'green', 'font-weight': 'bolder'}));
           setTimeout("$('.popup-pc').hide();", 2000);
           setTimeout( function () {
             overlay.appendTo(document.body).remove();
@@ -159,14 +151,14 @@ $.post("connection.php",{item: elem}, function (item) {
         $('#opciones-pc').empty();
         errores++;
         $("#vida"+errores).hide();
-        if(errores==1){
+        if(errores==3){
           registroRanking();
           pararTiempo();
           $('#tituloPopup').empty();
           $('#opciones-pc').empty();
           $('#preguntas-pc').empty();
-          $('#opciones-pc').append($('<p class="sinVidas"> TE QUEDASTE SIN VIDAS </p>'));
-          $('#tituloPopup').append($('<input type="button" class="btn btn-primary start" onclick="location.reload()" id="comenzar" name="comenzar" value="Volver a jugar"></input><br/><br/>'));
+          $('#tituloPopup').append($('<p> ¡Te quedaste <b style="color:red">sin vidas!</b> </p>'));
+          $('#opciones-pc').append($('<input type="button" class="btn btn-primary start" onclick="location.reload()" id="comenzar" name="comenzar" value="Volver a jugar"></input><br/><br/><img id="gameover" src="images/cry.png">'));
         }else{
           setTimeout(function () {
             $('#preguntas-pc').empty();
@@ -174,7 +166,7 @@ $.post("connection.php",{item: elem}, function (item) {
             $('#opciones-pc').show();      
             }, 2000);
           $('#opciones-pc').hide(); 
-          $('#preguntas-pc').text('Pierdes 1 vida y tienes que responder a otra pregunta');
+          $('#preguntas-pc').append('<p>Pierdes <strong style="color:red;">1 vida</strong> y tienes que responder a otra pregunta</p>');
           $('#opciones-pc').append($('<input type="radio" id="res-pc1" name="opciones" value="1"><span id="pc1">' + item[1].res1 + '</span></input><br/>'));
           $('#opciones-pc').append($('<input type="radio" id="res-pc2" name="opciones" value="2"><span id="pc2">' + item[1].res2 + '</span></input><br />'));
           $('#opciones-pc').append($('<input type="radio" id="res-pc3" name="opciones" value="3"><span id="pc3">' + item[1].res3 + '</span></input><br />'));
@@ -185,97 +177,100 @@ $.post("connection.php",{item: elem}, function (item) {
         $('input[type=radio][name=opciones]').change(function() {
           if (this.value == item[1].correcta) {
             contadorItem++;
-            $("#itemsactuales").text(contadorItem).animate({fontSize: "1.7em"}, 400).animate({fontSize: "1em"});;
-            if(contadorItem==7){
-              registroRanking();
-              pararTiempo();
-              $('#tituloPopup').empty();
-              $('#tituloPopup').text("¡Has conseguido encontrar los 7 objetos ocultos y responder correctamente a todas las preguntas!")
-              $('#preguntas-pc').empty();
-              $('#opciones-pc').empty();
-              $('#preguntas-pc').empty();
-              // Mostrar ranking aquí.
-              $('#preguntas-pc').text("Marca = " + marca);
-              $('#opciones-pc').append($('<img id="gameover" src="images/win.png"><input type="button" class="btn btn-primary start" id="comenzar" onclick="location.reload()" name="comenzar" value="Volver a jugar"></input><br/><br/>'));
-            }else{
-              $('#opciones-pc').empty();
-              $('#preguntas-pc').empty();
-              $('#preguntas-pc').text("FELICIDADES");
-              $('#opciones-pc').append($('<p> ITEM ADQUIRIDO </p>').css({backgroundColor: 'green'}));
-              setTimeout("$('.popup-pc').hide();", 2000);
-              setTimeout( function () {
-                overlay.appendTo(document.body).remove();
-              }, 2000);
-            }
-          }else{
-            $('#opciones-pc').empty();
-            errores++;
-            $("#vida"+errores).hide();
-            if(errores==3){
-              $('#tituloPopup').empty();
-              $('#opciones-pc').empty();
-              $('#preguntas-pc').empty();
-              $('#opciones-pc').append($('<p class="sinVidas"> TE QUEDASTE SIN VIDAS </p>'));
-              $('#tituloPopup').append($('<input type="button" class="btn btn-primary start" onclick="location.reload()" id="comenzar" name="comenzar" value="Volver a jugar"></input><br/><br/>'));
-            }else{
-              setTimeout(function () {
-                $('#preguntas-pc').empty();
-                $('#preguntas-pc').text(item[2].pregunta);
-                $('#opciones-pc').show();      
-              }, 2000);
-              $('#opciones-pc').hide(); 
-              $('#preguntas-pc').text('Pierdes 1 vida y tienes que responder a otra pregunta');                   
-              $('#opciones-pc').append($('<input type="radio" id="res-pc1" name="opciones" value="1"><span id="pc1">' + item[1].res1 + '</span></input><br/>'));
-              $('#opciones-pc').append($('<input type="radio" id="res-pc2" name="opciones" value="2"><span id="pc2">' + item[1].res2 + '</span></input><br />'));
-              $('#opciones-pc').append($('<input type="radio" id="res-pc3" name="opciones" value="3"><span id="pc3">' + item[1].res3 + '</span></input><br />'));
-            }
+        $("#itemsactuales").text(contadorItem).animate({fontSize: "1.7em"}, 400).animate({fontSize: "1em"});;
+        if(contadorItem==7){
+          registroRanking();
+          pararTiempo();
+          // Función para parar el tiempo y mostrarlo en la sección "Tiempo" del perfil.
+          $('#tituloPopup').empty();
+          $('#tituloPopup').append("<p style='color:green'>¡HAS GANADO!</p>").animate({fontSize: "4em"}, 400).animate({fontSize: "2em"});;
+          $('#preguntas-pc').empty();
+          $('#opciones-pc').empty();
+          $('#preguntas-pc').empty();
+          $('#preguntas-pc').text("Marca = " + marca);
+          $('#opciones-pc').append($('<img id="gameover" src="images/win.png"><input type="button" class="btn btn-primary start" id="comenzar" onclick="location.reload()" name="comenzar" value="Volver a jugar"></input><br/><br/>'));
+        }else{
+          $('#opciones-pc').empty();
+          $('#preguntas-pc').empty();
+          $('#opciones-pc').append($('<p> ¡ITEM ENCONTRADO! </p>').css({'color': 'green', 'font-weight': 'bolder'}));
+          setTimeout("$('.popup-pc').hide();", 2000);
+          setTimeout( function () {
+            overlay.appendTo(document.body).remove();
+          }, 2000);
+        }
+      }else{
+        console.log("error");
+        $('#opciones-pc').empty();
+        errores++;
+        $("#vida"+errores).hide();
+        if(errores==3){
+          registroRanking();
+          pararTiempo();
+          $('#tituloPopup').empty();
+          $('#opciones-pc').empty();
+          $('#preguntas-pc').empty();
+          $('#tituloPopup').append($('<p> ¡Te quedaste <b style="color:red">sin vidas!</b> </p>'));
+          $('#opciones-pc').append($('<input type="button" class="btn btn-primary start" onclick="location.reload()" id="comenzar" name="comenzar" value="Volver a jugar"></input><br/><br/><img id="gameover" src="images/cry.png">'));
+        }else{
+          setTimeout(function () {
+            $('#preguntas-pc').empty();
+            $('#preguntas-pc').text(item[2].pregunta);
+            $('#opciones-pc').show();      
+            }, 2000);
+          $('#opciones-pc').hide(); 
+          $('#preguntas-pc').append('<p>Pierdes <strong style="color:red;">1 vida</strong> y tienes que responder a otra pregunta</p>');
+          $('#opciones-pc').append($('<input type="radio" id="res-pc1" name="opciones" value="1"><span id="pc1">' + item[1].res1 + '</span></input><br/>'));
+          $('#opciones-pc').append($('<input type="radio" id="res-pc2" name="opciones" value="2"><span id="pc2">' + item[1].res2 + '</span></input><br />'));
+          $('#opciones-pc').append($('<input type="radio" id="res-pc3" name="opciones" value="3"><span id="pc3">' + item[1].res3 + '</span></input><br />'));
+        }
 
             // Evento opción 3
 
             $('input[type=radio][name=opciones]').change(function() {
              if (this.value == item[2].correcta) {
-               contadorItem++;
-               $("#itemsactuales").text(contadorItem).animate({fontSize: "1.7em"}, 400).animate({fontSize: "1em"});;
-               if(contadorItem==7){
+              contadorItem++;
+              $("#itemsactuales").text(contadorItem).animate({fontSize: "1.7em"}, 400).animate({fontSize: "1em"});;
+              if(contadorItem==7){
                 registroRanking();
                 pararTiempo();
+                // Función para parar el tiempo y mostrarlo en la sección "Tiempo" del perfil.
                 $('#tituloPopup').empty();
-                $('#tituloPopup').text("¡Has conseguido encontrar los 7 objetos ocultos y responder correctamente a todas las preguntas!")
+                $('#tituloPopup').append("<p style='color:green'>¡HAS GANADO!</p>").animate({fontSize: "4em"}, 400).animate({fontSize: "2em"});;
                 $('#preguntas-pc').empty();
                 $('#opciones-pc').empty();
                 $('#preguntas-pc').empty();
-
-                // Mostrar ranking aquí.
                 $('#preguntas-pc').text("Marca = " + marca);
                 $('#opciones-pc').append($('<img id="gameover" src="images/win.png"><input type="button" class="btn btn-primary start" id="comenzar" onclick="location.reload()" name="comenzar" value="Volver a jugar"></input><br/><br/>'));
               }else{
                 $('#opciones-pc').empty();
                 $('#preguntas-pc').empty();
-                $('#preguntas-pc').text("FELICIDADES");
-                $('#opciones-pc').append($('<p> ITEM ADQUIRIDO </p>').css({backgroundColor: 'green'}));
+                $('#opciones-pc').append($('<p> ¡ITEM ENCONTRADO! </p>').css({'color': 'green', 'font-weight': 'bolder'}));
                 setTimeout("$('.popup-pc').hide();", 2000);
                 setTimeout( function () {
                   overlay.appendTo(document.body).remove();
                 }, 2000);
               }
             }else{
+              console.log("error");
               $('#opciones-pc').empty();
               errores++;
               $("#vida"+errores).hide();
               if(errores==3){
+                registroRanking();
+                pararTiempo();
                 $('#tituloPopup').empty();
                 $('#opciones-pc').empty();
-                $('#preguntas-pc').empty(); 
-                $('#opciones-pc').append($('<p class="sinVidas"> TE QUEDASTE SIN VIDAS </p>'));
-                $('#tituloPopup').append($('<input type="button" class="btn btn-primary start" onclick="location.reload()" id="comenzar" name="comenzar" value="Volver a jugar"></input><br/><br/>'));
+                $('#preguntas-pc').empty();
+                $('#tituloPopup').append($('<p> ¡Te quedaste <b style="color:red">sin vidas!</b> </p>'));
+                $('#opciones-pc').append($('<input type="button" class="btn btn-primary start" onclick="location.reload()" id="comenzar" name="comenzar" value="Volver a jugar"></input><br/><br/><img id="gameover" src="images/cry.png">'));
               }else{
                 setTimeout(function () {
                   $('#preguntas-pc').empty();
                   $('#preguntas-pc').text(item[3].pregunta);
                   $('#opciones-pc').show();      
-                }, 2000);         
+                  }, 2000);
                 $('#opciones-pc').hide(); 
-                $('#preguntas-pc').text('Pierdes 1 vida y tienes que responder a otra pregunta');
+                $('#preguntas-pc').append('<p>Pierdes <strong style="color:red;">1 vida</strong> y tienes que responder a otra pregunta</p>');
                 $('#opciones-pc').append($('<input type="radio" id="res-pc1" name="opciones" value="1"><span id="pc1">' + item[1].res1 + '</span></input><br/>'));
                 $('#opciones-pc').append($('<input type="radio" id="res-pc2" name="opciones" value="2"><span id="pc2">' + item[1].res2 + '</span></input><br />'));
                 $('#opciones-pc').append($('<input type="radio" id="res-pc3" name="opciones" value="3"><span id="pc3">' + item[1].res3 + '</span></input><br />'));
