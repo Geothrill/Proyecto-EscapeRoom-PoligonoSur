@@ -13,6 +13,11 @@ font-family:luna;
 src: url(../font/Luna.ttf);
 }
 
+@font-face {
+font-family:AHundredMiles;
+src: url(../font/AHundredMiles.ttf);
+}
+
 body {
 	overflow: hidden;
 	/* Para que no se pueda mover la barra */
@@ -48,7 +53,7 @@ body {
     white-space: nowrap;
     overflow:hidden;
     position: absolute;
-    
+
 }
 #router {
     left: 87%;
@@ -83,7 +88,7 @@ body {
 #lupa {
     border-radius: 30px;
     position:absolute;
-    
+
     left: 3%;
     top: 79%;
     width: 5%;
@@ -204,7 +209,7 @@ box-shadow: 0 2px 5px #000;
 clear: both;
         /* text-align: justify; */
     font-size: 1.6em;
-    font-family: arial;
+    font-family: AHundredMiles;
 
 }
 .cnt223 h1{
@@ -241,14 +246,14 @@ cursor: pointer;
 
 .popup li{
   letter-spacing: 2px;
-  font-family: arial;
-  font-size: 1.2em;
+  font-family: AHundredMiles;
+  font-size: 1.6em;
 }
 
 .popup p{
     letter-spacing: 2px;
-  font-family: arial;
-  font-size: 1.2em;
+  font-family: AHundredMiles;
+  font-size: 1.8em;
 }
 
 .popup img{
@@ -259,7 +264,7 @@ cursor: pointer;
 }
 
 .usuario{
-    font-family: arial;
+    font-family: AHundredMiles;
     font-size: 2em;
     text-align: center;
 }
@@ -284,7 +289,7 @@ cursor: pointer;
 	z-index: 101;
 }
 .reloj{
-    
+
 	font-weight: bold;
 	font-size: 45px;
 	color: red;
@@ -320,16 +325,16 @@ input[type="radio"] {
 
 #opciones-pc{
   letter-spacing: 2px;
-  font-family: arial;
-  font-size: 1em;
+  font-family: AHundredMiles;
+  font-size: 1.6em;
 
 }
 
 #preguntas-pc{
     color: blue;
   letter-spacing: 2px;
-  font-family: arial;
-  font-size: 1.3em;
+  font-family: AHundredMiles;
+  font-size: 1.8em;
 
 }
 

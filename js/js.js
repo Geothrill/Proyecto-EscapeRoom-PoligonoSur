@@ -25,7 +25,7 @@ $(function(){
 //registra tiempo y usuario y los mete en un array
 
 function registroRanking(){
-  if (errores==1) { // 3
+  if (errores==3) { // 3
     marca = 0;
   } else {
     var tiempo =$("#cuentaAtras").text();
@@ -33,7 +33,7 @@ function registroRanking(){
     var min = parseInt(arrayTiempo[0])*60;
     var seg = parseInt(arrayTiempo[1]);
     marca = min+seg;
-    
+
   }
   var player =$(".playername").text();
 
@@ -147,7 +147,6 @@ $.post("connection.php",{item: elem}, function (item) {
           }, 2000);
         }
       }else{
-        console.log("error");
         $('#opciones-pc').empty();
         errores++;
         $("#vida"+errores).hide();
@@ -163,9 +162,10 @@ $.post("connection.php",{item: elem}, function (item) {
           setTimeout(function () {
             $('#preguntas-pc').empty();
             $('#preguntas-pc').text(item[1].pregunta);
-            $('#opciones-pc').show();      
+            $('#opciones-pc').show();
             }, 2000);
-          $('#opciones-pc').hide(); 
+          $('#opciones-pc').hide();
+          $('#preguntas-pc').empty();
           $('#preguntas-pc').append('<p>Pierdes <strong style="color:red;">1 vida</strong> y tienes que responder a otra pregunta</p>');
           $('#opciones-pc').append($('<input type="radio" id="res-pc1" name="opciones" value="1"><span id="pc1">' + item[1].res1 + '</span></input><br/>'));
           $('#opciones-pc').append($('<input type="radio" id="res-pc2" name="opciones" value="2"><span id="pc2">' + item[1].res2 + '</span></input><br />'));
@@ -199,7 +199,6 @@ $.post("connection.php",{item: elem}, function (item) {
           }, 2000);
         }
       }else{
-        console.log("error");
         $('#opciones-pc').empty();
         errores++;
         $("#vida"+errores).hide();
@@ -215,13 +214,14 @@ $.post("connection.php",{item: elem}, function (item) {
           setTimeout(function () {
             $('#preguntas-pc').empty();
             $('#preguntas-pc').text(item[2].pregunta);
-            $('#opciones-pc').show();      
+            $('#opciones-pc').show();
             }, 2000);
-          $('#opciones-pc').hide(); 
+          $('#opciones-pc').hide();
+          $('#preguntas-pc').empty();
           $('#preguntas-pc').append('<p>Pierdes <strong style="color:red;">1 vida</strong> y tienes que responder a otra pregunta</p>');
-          $('#opciones-pc').append($('<input type="radio" id="res-pc1" name="opciones" value="1"><span id="pc1">' + item[1].res1 + '</span></input><br/>'));
-          $('#opciones-pc').append($('<input type="radio" id="res-pc2" name="opciones" value="2"><span id="pc2">' + item[1].res2 + '</span></input><br />'));
-          $('#opciones-pc').append($('<input type="radio" id="res-pc3" name="opciones" value="3"><span id="pc3">' + item[1].res3 + '</span></input><br />'));
+          $('#opciones-pc').append($('<input type="radio" id="res-pc1" name="opciones" value="1"><span id="pc1">' + item[2].res1 + '</span></input><br/>'));
+          $('#opciones-pc').append($('<input type="radio" id="res-pc2" name="opciones" value="2"><span id="pc2">' + item[2].res2 + '</span></input><br />'));
+          $('#opciones-pc').append($('<input type="radio" id="res-pc3" name="opciones" value="3"><span id="pc3">' + item[2].res3 + '</span></input><br />'));
         }
 
             // Evento opción 3
@@ -251,7 +251,6 @@ $.post("connection.php",{item: elem}, function (item) {
                 }, 2000);
               }
             }else{
-              console.log("error");
               $('#opciones-pc').empty();
               errores++;
               $("#vida"+errores).hide();
@@ -267,9 +266,10 @@ $.post("connection.php",{item: elem}, function (item) {
                 setTimeout(function () {
                   $('#preguntas-pc').empty();
                   $('#preguntas-pc').text(item[3].pregunta);
-                  $('#opciones-pc').show();      
+                  $('#opciones-pc').show();
                   }, 2000);
-                $('#opciones-pc').hide(); 
+                $('#opciones-pc').hide();
+                $('#preguntas-pc').empty();
                 $('#preguntas-pc').append('<p>Pierdes <strong style="color:red;">1 vida</strong> y tienes que responder a otra pregunta</p>');
                 $('#opciones-pc').append($('<input type="radio" id="res-pc1" name="opciones" value="1"><span id="pc1">' + item[1].res1 + '</span></input><br/>'));
                 $('#opciones-pc').append($('<input type="radio" id="res-pc2" name="opciones" value="2"><span id="pc2">' + item[1].res2 + '</span></input><br />'));
@@ -279,7 +279,7 @@ $.post("connection.php",{item: elem}, function (item) {
            });
           }
         });
-       } 
+       }
       }
      });
     });
@@ -310,5 +310,4 @@ function pararTiempo() {
   tiempoFinal.text(tiempo);
   tiempoFinal.css({"display" : "inline", "color" : "green"});
   tiempoFinal.delay(1500).animate({fontSize: "5em"}, 400).animate({fontSize: "3.5em"});;
-  console.log("Tiempo ==> " + tiempo + ", Objeto ==> " + $("#cuentaAtras"));
 }
