@@ -8,6 +8,11 @@ font-family:run;
 src: url(../font/Run.ttf);
 }
 
+@font-face {
+font-family:luna;
+src: url(../font/Luna.ttf);
+}
+
 body {
 	overflow: hidden;
 	/* Para que no se pueda mover la barra */
@@ -36,8 +41,14 @@ body {
 }
 
 .item {
+    /*descomentar para ver los objetos*/
+
+    /*background-color: white;*/
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow:hidden;
     position: absolute;
-    background-color: beige;
+    
 }
 #router {
     left: 87%;
@@ -72,7 +83,7 @@ body {
 #lupa {
     border-radius: 30px;
     position:absolute;
-    background-color: red;
+    
     left: 3%;
     top: 79%;
     width: 5%;
@@ -221,9 +232,18 @@ width: 34px;
 cursor: pointer;
 }
 
+/* aqui se controla las fuentes de la pagina de inicio */
+
 .popup li{
-  font-family: Gate;
-  font-size: 1.6em;
+  letter-spacing: 2px;
+  font-family: luna;
+  font-size: 1em;
+}
+
+.popup p{
+    letter-spacing: 2px;
+  font-family: luna;
+  font-size: 1em;
 }
 
 .popup img{
@@ -289,4 +309,38 @@ input[type="radio"] {
 .celdaRanking {
     width: 100%;
     border: 1px solid black;
+}
+
+/* De javi */
+
+#opciones-pc{
+  letter-spacing: 2px;
+  font-family: luna;
+  font-size: 1em;
+
+}
+
+#preguntas-pc{
+    color: blue;
+  letter-spacing: 2px;
+  font-family: luna;
+  font-size: 1.3em;
+
+}
+
+#tituloPopup{
+
+  letter-spacing: 2px;
+  font-family: luna;
+  font-size: 1.6em;
+
+}
+
+.tablaRanking{
+    font-family: serif;
+}
+
+.sinVidas{
+  font-family: luna;
+  font-size: 1.6em;
 }

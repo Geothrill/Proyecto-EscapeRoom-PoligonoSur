@@ -17,8 +17,8 @@ $(document).ready(function(){
 
     $(".item").droppable({
       drop: function(event, ui) {
-        $(this)
-        	.addClass("ui-state-highlight")	// Añade un color debug al div. (solo debug)
+        //$(this)
+        	//.addClass("ui-state-highlight")	 Añade un color debug al div. (solo debug)
 
         	/* Implementar aquí las pistas */
         	//console.log(event.target.id);

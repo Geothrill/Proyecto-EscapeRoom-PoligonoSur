@@ -1,7 +1,7 @@
 <?php
 	// Conectando, seleccionando la base de datos
 	// $mysqli = new mysqli('HOST', 'USER', 'PASS', 'NOMBRE_BD');
-	$mysqli = new mysqli('localhost', 'root', '', 'juego');
+	$mysqli = new mysqli('localhost', 'root', 'root', 'juego');
 	$mysqli->set_charset("utf8");
 
 	/* En caso de que haya error... */
@@ -27,7 +27,7 @@
 
 	/* Envío de ranking al cliente. Uso la misma variable $resultado, para que asi se pise y poder hacer ->free */ 
 	$res=[];
-	$sql1 = 'select * from ranking;';
+	$sql1 = 'select * from ranking order by tiempo desc;';
 	$resultado = $mysqli->query($sql1);
 
 	while($row = $resultado->fetch_object()){
