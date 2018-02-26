@@ -32,10 +32,12 @@ function registroRanking(){
   //alert(marca);
   //alert(player);
 
-  var array =new Array();
-  array["nombre"]=player;
-  array["puntuacion"]=marca;
-  console.log(array);
+  //var array =new Array();
+  //array["nombre"]=player;
+  //array["puntuacion"]=marca;
+  //console.log(array);
+  $.post("connectionRanking.php", {player: player, marca: parseInt(marca)});
+
 };
 
 function mostrarRanking(){
